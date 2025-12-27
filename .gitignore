@@ -1,0 +1,36 @@
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor/IDE
+.vscode/
+.idea/
+*.sublime-*
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependencies (if any added later)
+node_modules/
+
+# Build outputs (if any)
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+
+# Old files
+index.php
+index.php.bak
+*.backup
+
+# Temporary files
+*.tmp
+.cache/
