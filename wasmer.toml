@@ -4,22 +4,17 @@ version = "2.0.0"
 description = "🎨 Streaming Chat Overlay Designer - Customize YouTube, Twitch, TikTok chat overlays for OBS with live preview"
 license = "MIT"
 
-[[module]]
-name = "csschatobs"
-source = "."
-abi = "none"
-
 [dependencies]
-"sharrattj/static-web-server" = "1.x"
+"wasmer/static-web-server" = "^1"
 
 [fs]
 "/public" = "."
 
 [[command]]
-name = "script"
-module = "sharrattj/static-web-server:webserver"
+name = "run"
+module = "wasmer/static-web-server:webserver"
 runner = "https://webc.org/runner/wasi"
 
 [command.annotations.wasi]
-env = ["ROOT_PATH=/public", "FALLBACK_PAGE=/public/index.html"]
-main-args = ["-g", "info"]
+env = ["ROOT=/public"]
+
