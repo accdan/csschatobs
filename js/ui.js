@@ -209,9 +209,16 @@ class UIController {
         container.innerHTML = presets.map(name => `
             <div class="preset-item">
                 <button class="btn-preset" data-preset="${name}">${name}</button>
-                <button class="btn-delete-preset" data-preset="${name}" title="Delete">🗑️</button>
+                <button class="btn-delete-preset" data-preset="${name}" title="Delete">
+                    <i data-lucide="trash-2" style="width: 16px; height: 16px;"></i>
+                </button>
             </div>
         `).join('');
+
+        // Re-initialize Lucide icons for newly added elements
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
 
         // Add event listeners for preset buttons
         container.querySelectorAll('.btn-preset').forEach(btn => {
@@ -288,7 +295,12 @@ class UIController {
 
         const icon = document.getElementById('dark-mode-icon');
         if (icon) {
-            icon.textContent = this.darkMode ? '☀️' : '🌙';
+            // Update the icon name
+            icon.setAttribute('data-lucide', this.darkMode ? 'sun' : 'moon');
+            // Re-initialize Lucide to update the icon
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
         }
 
         this.saveUIPreferences();

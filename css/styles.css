@@ -520,6 +520,47 @@ details[open] summary {
 }
 
 /* ========================================
+   Watermark - YouTube Channel Link
+======================================== */
+.watermark {
+    position: fixed;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(255, 0, 0, 0.05));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    border-radius: var(--radius-md);
+    color: #ff0000;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.1);
+}
+
+.watermark:hover {
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.2), rgba(255, 0, 0, 0.1));
+    border-color: rgba(255, 0, 0, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.25);
+}
+
+.watermark svg {
+    fill: currentColor;
+}
+
+.watermark span {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* ========================================
    Print Styles
 ======================================== */
 @media print {
