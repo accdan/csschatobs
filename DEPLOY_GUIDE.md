@@ -68,6 +68,54 @@ Jika ingin deploy sebagai website live:
 
 ---
 
+### 4. Deploy ke Wasmer (Alternative - Serverless Edge Deployment)
+
+Wasmer menyediakan platform serverless untuk deploy static site dengan CDN global. Proyek ini sudah dilengkapi dengan `wasmer.toml`.
+
+#### Cara Deploy ke Wasmer:
+
+1. **Install Wasmer CLI** (jika belum):
+   ```bash
+   # Windows (PowerShell)
+   iwr https://win.wasmer.io -useb | iex
+   
+   # macOS/Linux
+   curl https://get.wasmer.io -sSfL | sh
+   ```
+
+2. **Login ke Wasmer**:
+   ```bash
+   wasmer login
+   ```
+   - Browser akan terbuka untuk authentication
+   - Login dengan GitHub atau email
+
+3. **Deploy aplikasi**:
+   ```bash
+   # Di dalam folder project
+   wasmer deploy
+   ```
+
+4. **Website akan otomatis deploy** ke:
+   - `https://csschatobs.wasmer.app/` (atau subdomain yang dipilih)
+
+#### Update Deployment:
+Setiap kali ada perubahan code:
+```bash
+git add .
+git commit -m "Update: deskripsi perubahan"
+git push
+wasmer deploy  # Deploy ulang ke Wasmer
+```
+
+#### Keuntungan Wasmer:
+- ⚡ **Super cepat** - Edge CDN global
+- 🔄 **Auto SSL** - HTTPS otomatis
+- 🌍 **Global CDN** - Tersebar di seluruh dunia
+- 💰 **Free tier** - Gratis untuk project kecil
+
+---
+
 ## 🎯 Quick Commands Reference
 
 ### Jika mau update code di masa depan:
